@@ -1,11 +1,10 @@
 // query를 해결(resolve) 하는 파일
-import {getMovies, getById} from './db';
+import {getMovies, getById, addMovie, deleteMovie} from './db';
 
 const resolvers = {
     Query: {
-        movies: () => getMovies(),
-        movie: (_, {id}) => getById(id)
-    }
+        movies:(_, {limit, rating}) => getMovies(limit, rating),
+    },
 }
 
 export default resolvers;
