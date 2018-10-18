@@ -1,0 +1,21 @@
+# 사용자가 뭘 할지에 대해 정의
+
+# 그 중 하나가 database로 부터 정보를 얻는 것 (query)
+# 다른 하나는 정보를 보내는 것
+
+# mutation : database or memory에서 정보를 바꾸는 작업
+
+# 우리가 GraphQL 서버에 할 건, 어떤 mutations 그리고 어떤 query들을
+# 우리가 가지고 있는지 알려주는 것
+ 
+type Person {
+    id: Int!
+    name: String!
+    age: Int!
+    gender: String!
+}
+
+type Query {
+    people: [Person]!
+    person(id: Int!): Person # 해당하는 person을 못찾을 수도 있으니 !를 넣지 않음
+}
